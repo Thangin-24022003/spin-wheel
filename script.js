@@ -1,5 +1,16 @@
 let prizes = [];
-const colors = ["#FF6384", "#36A2EB", "#FFCE56", "#4BC0C0", "#9966FF", "#FF9F40"];
+const colors = [
+    "#FF6384", // đỏ hồng
+    "#36A2EB", // xanh dương
+    "#FFCE56", // vàng
+    "#4BC0C0", // xanh ngọc
+    "#9966FF", // tím
+    "#FF9F40", // cam
+    "#2ecc71", // xanh lá
+    "#e67e22", // cam đất
+    "#e74c3c", // đỏ tươi
+    "#1abc9c"  // xanh ngọc sáng
+];
 const spinBtn = document.getElementById("spinBtn");
 const resultEl = document.getElementById("result");
 const wheel = document.getElementById("wheel");
@@ -37,7 +48,7 @@ function updateWheel() {
 prizeInput.addEventListener("input", () => {
     // Tách chuỗi thành mảng, cho phép các cụm từ có khoảng trắng
     const inputValue = prizeInput.value;
-    const newPrizes = inputValue.split(",").map(p => p.trim()).filter(p => p);
+    const newPrizes = inputValue.split(/[\n,]+/).map(p => p.trim()).filter(p => p);
     prizes = newPrizes.length ? newPrizes : [];
     updateWheel();
 });
