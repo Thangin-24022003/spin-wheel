@@ -1,0 +1,99 @@
+body {
+    font-family: sans-serif;
+    background: #f3f4f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+#prizeInput {
+    padding: 8px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.wheel-container {
+    position: relative;
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+}
+
+.wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #facc15;
+    transition: transform 5s ease-out;
+    transform: rotate(0deg);
+}
+
+.pointer {
+    position: absolute;
+    top: -13px;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 20px solid black;
+    transform: rotate(-60deg);
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #16a34a;
+    font-weight: bold;
+}
+
+.slice {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    transform-origin: center;
+    pointer-events: none;
+}
+
+.slice span {
+    position: absolute;
+    top: 30%;
+    /* Đặt text ở khoảng 25% từ tâm, tức là giữa tâm và cạnh ngoài */
+    left: 80%;
+    transform: translate(-50%, -50%) rotate(calc(-1 * var(--slice-angle) - 90deg));
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    white-space: nowrap;
+}
