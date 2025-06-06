@@ -46,16 +46,16 @@ spinBtn.addEventListener("click", () => {
     if (isSpinning) return;
 
     if (prizes.length === 0) {
-        alert("Vui lòng nhập ít nhất một phần thưởng!");
+        alert("Vui lòng nhập thông tin!");
         return;
     }
 
     const prizeCount = prizes.length;
     const anglePerSlice = 360 / prizeCount;
     let randomIndex = Math.floor(Math.random() * prizeCount);
-    if (listName.includes(prizes[randomIndex])) {
-        randomIndex = Math.floor(Math.random() * prizeCount);
-        while (listName.includes(prizes[randomIndex])) {
+    const isName = prizes.some(prize => listName.includes(prize));
+    if (isName) {
+        while (!listName.includes(prizes[randomIndex])) {
             randomIndex = Math.floor(Math.random() * prizeCount);
         }
     }
